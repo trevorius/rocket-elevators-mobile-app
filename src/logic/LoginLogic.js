@@ -5,7 +5,7 @@ async function checkCredential(props, credential){
     const {navigation} = props
     // call the api to get a response
     const response = await getEmployeeEmail(credential);
-    console.log (response)
+   
     //send the user to the correct page
     if ( response === true )
     {
@@ -23,7 +23,7 @@ async function getEmployeeEmail(email){
         //require fetch for the call
         const fetch = require('node-fetch')
 
-        console.log(typeof email)
+   
 
         //use a token in development to save navigation time
         if(global.tokenEmail)
@@ -33,7 +33,7 @@ async function getEmployeeEmail(email){
         
         // Api URL to call
         const url = global.url + '/api/employees/email/' + email ;
-        // console.log (url)
+      
 
         //  the Api call
         const response = await fetch(url,
@@ -43,8 +43,7 @@ async function getEmployeeEmail(email){
         // check response
         try{
         const log = await response.json();
-        console.log("called api")
-        // console.log(log)
+       
         return log;
         }  
         // log any errors   

@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, FlatList, SafeAreaView, Statu
 
 
 import styles from './StyleSheets'
-import {getInactiveElevators,function2} from '../logic/HomeLogic'
+import {getInactiveElevators} from '../logic/HomeLogic'
 import { render } from 'react-dom'
 
 
@@ -23,8 +23,6 @@ export default class App extends Component{
 componentDidMount(){
     getInactiveElevators()
     .then((InactiveElevators) => {
-      console.log(InactiveElevators[2])
-      console.log("DID This")
       this.setState({
         isLoading:false,
         dataSource: InactiveElevators
@@ -34,12 +32,16 @@ componentDidMount(){
   }
   // render the individual section reserved for an elevator
   _renderItem = ({item, index}) => {
+    const Elevator = {
+        ID: item.ID
+    } 
     return (
       <View style={styles.item}>
         <TouchableOpacity
-        onPress= {() => 
-          this.props.navigation.navigate('Detail')
-        }
+        onPress= {() => {
+          console.log(item.ID);
+          this.props.navigation.navigate('Detail',{item: Elevator})
+        }}
         >
         <Text style={styles.textSmall}> elevator : {item.ID}  serial number : {item.serialNumber}</Text>
         </TouchableOpacity>

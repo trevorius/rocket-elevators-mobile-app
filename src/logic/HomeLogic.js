@@ -44,8 +44,6 @@ async function getInactiveElevators(){
     }
 
 }
-function function2(){
 
-}
 
-export {getInactiveElevators, function2}
+export {getInactiveElevators}
