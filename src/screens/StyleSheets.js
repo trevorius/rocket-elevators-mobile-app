@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
       fontSize:10,
       color: pallet.black,
       borderStyle: "dashed"
+    },
+    item:{
+      padding: 10,
+      borderBottomWidth: 3,
+      color: pallet.red
+
     }
   
 })

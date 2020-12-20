@@ -30,6 +30,9 @@ async function getInactiveElevators(){
             // add to the array
             elevatorDisplay.push(elevatorInfo);
         }
+
+        // console.log(elevatorDisplay)
+
         // a log for the console to display the result works   
         console.log ("number of inactive elevators : " + elevatorDisplay.length);
         return elevatorDisplay;
