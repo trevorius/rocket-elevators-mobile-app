@@ -38,6 +38,13 @@ const styles = StyleSheet.create({
     buttonText: {
       fontSize: 20,
       color: 'white'
+    },
+    textInput: {
+      padding: 15,
+      margin: 5,
+      fontSize:10,
+      color: pallet.black,
+      borderStyle: "dashed"
     }
   
 })
