@@ -12,32 +12,51 @@ function Login(props) {
       <Text style={styles.text}>Login to your account</Text>
       <TouchableOpacity
         style={styles.buttonContainerBlue}
-        onPress={async () => {
-           if (await getEmployeeEmail())
-           {
-                navigation.navigate('Home')
-           }
-            
-           }}>
+        onPress={async () => 
+           await checkCredential(props)
+           }>
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
     </View>
   )
 }
 
+async function checkCredential(props){
+    const {navigation} = props
+
+    const response = await getEmployeeEmail();
+    console.log (response)
+    
+    if ( response === true )
+    {
+        navigation.navigate('Home')
+    }
+    else
+    {
+        console.log("here")
+        
+    }
+}
+
+
 
 async function getEmployeeEmail(){
 
         const fetch = require('node-fetch')
 
-        const response = await fetch('http://fabf0755c3b8.ngrok.io/api/employees/email/martin.chantal@codeboxx.biz',
+        const response = await fetch('https://fabf0755c3b8.ngrok.io/api/employees/email/martin.chantal@codeboxx.biz',
             {
                 "method":"GET"
             })
+        try{
         const log = await response.json();
-
-        console.log(log)
+        console.log("called api")
+        // console.log(log)
         return log;
+        }        
+        catch (error) {
+            console.log(error)            
+        }
 
 
 }
