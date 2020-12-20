@@ -15,7 +15,7 @@ async function getElevatorInfo(id){
     try{
         // jsonify response
         const Elevator = await response.json();
-        // console.groupCollapsed(Elevator);
+        console.log(Elevator);
         return Elevator;
     }
     catch(error){
@@ -24,5 +24,33 @@ async function getElevatorInfo(id){
     }
 
 }
+async function changeStatusToActive(ID){
+    // set url for api response
+    const url = `${global.url}/api/elevators/status/${ID}`
+    // define body
+    const body = {
+        id: ID,
+        status: "Active"
+    }
+    console.log (body)
+    // make api request PUT
+    const response = await fetch(url,
+        {
+            "method": "PUT",
+            "headers": {
+                'Content-type': 'application/json; charset=UTF-8'
+            },
+            "body": JSON.stringify(body)
+        })
+    try{
+        console.log(response)
+    }
+    catch(error){
+        alert(error)
 
-export {getElevatorInfo}
+    }
+    
+
+}
+
+export {getElevatorInfo, changeStatusToActive}

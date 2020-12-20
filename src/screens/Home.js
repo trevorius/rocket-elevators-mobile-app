@@ -33,7 +33,11 @@ componentDidMount(){
   // render the individual section reserved for an elevator
   _renderItem = ({item, index}) => {
     const Elevator = {
-        ID: item.ID
+        ID: item.id,
+        lastInspectionDate:item.last_inspection_date,
+        inspectionCertificate: item.inspection_certificate,
+        status: item.status,
+        serialNumber: item.serial_number,
     } 
     return (
       <View style={styles.item}>
@@ -43,7 +47,7 @@ componentDidMount(){
           this.props.navigation.navigate('Detail',{item: Elevator})
         }}
         >
-        <Text style={styles.textSmall}> elevator : {item.ID}  serial number : {item.serialNumber}</Text>
+        <Text style={styles.textSmall}> elevator : {item.id}  serial number : {item.serial_number}</Text>
         </TouchableOpacity>
       </View>
     )

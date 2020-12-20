@@ -1,28 +1,72 @@
 // src/screens/Home.js
 
-import React from 'react'
+import React, {useState, Component} from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
-import {getElevatorInfo} from '../logic/DetailLogic'
+import {getElevatorInfo, changeStatusToActive} from '../logic/DetailLogic'
+import pallet from './colors'
 import styles from './StyleSheets'
 
 
 function Detail(props) {
   const {route} = props
   const {item} = route.params
-  const {ID} = item
-  const Elevator = getElevatorInfo(ID)
-  console.log(Elevator.information)
-  
+  const {ID, lastInspectionDate, inspectionCertificate, status, serialNumber } = item
+
+  getElevatorInfo(ID)
+  // .then((Elevator) => {
+  // // console.log(Elevator.information))
+  if(status.toLowerCase() == 'active'){
+    return (
+      <View style={styles.container}>
+        <Text style={styles.textLarge}>Elevator : </Text>
+        <View>
+          <Text style={styles.text} > ID : </Text>
+          <Text style={styles.textRed} >{ID}</Text>
+          <Text style={styles.text} > status : </Text>
+          <Text style={styles.textRed} >{status}</Text>
+          <Text style={styles.text} > last inspection date :</Text> 
+          <Text style={styles.textRed} >{lastInspectionDate}</Text>
+          <Text style={styles.text} > inspection certificate :</Text>
+          <Text style={styles.textRed} >{inspectionCertificate}</Text>
+          <Text style={styles.text} > serial number : </Text>
+          <Text style={styles.textRed} >{serialNumber}</Text>
+        </View>
+      </View>
+    
+    )
+  }
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Elevator : </Text>
+      <Text style={styles.textLarge}>Elevator : </Text>
       <View>
-        <Text style={styles.text} > ID : {ID}</Text>
+        <Text style={styles.text} > ID : </Text>
+        <Text style={styles.textRed} >{ID}</Text>
+        <Text style={styles.text} > status : </Text>
+        <Text style={styles.textRed} >{status}</Text>
+        <Text style={styles.text} > last inspection date :</Text> 
+        <Text style={styles.textRed} >{lastInspectionDate}</Text>
+        <Text style={styles.text} > inspection certificate :</Text>
+        <Text style={styles.textRed} >{inspectionCertificate}</Text>
+        <Text style={styles.text} > serial number : </Text>
+        <Text style={styles.textRed} >{serialNumber}</Text>      
       </View>
+      <TouchableOpacity
+            style={styles.buttonContainerBlue}
+            onPress={ async () => 
+             await changeStatusToActive(ID)
+             
+            }>
+            <Text style={styles.buttonText}>change status to ACTIVE</Text>
+      </TouchableOpacity>
     </View>
+  
   )
 }
+
+
+
+
 // return (
 //   <View style={styles.container}>
 //     <Text style={styles.text}>Details Screen</Text>

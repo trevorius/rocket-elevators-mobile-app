@@ -16,6 +16,17 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontWeight: 'bold'
     },
+    textRed: {
+      color: pallet.red,
+      fontSize: 24,
+      fontWeight: 'bold'
+    },
+    textLarge: {
+      color: pallet.black,
+      fontSize: 40,
+      textDecorationLine: 'underline',
+      fontWeight: 'bold'
+    },
     textSmall:{
       color: pallet.black,
       fontSize: 15,

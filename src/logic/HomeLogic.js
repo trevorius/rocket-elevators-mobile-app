@@ -20,22 +20,28 @@ async function getInactiveElevators(){
     try{
         // jsonify the response
         const inactiveElevators = await response.json();
+
+        return inactiveElevators;
+
         // populate Display array
-        for (let i = 0 ; i < inactiveElevators.length; i++){
-            // extract desired information
-            const elevatorInfo = {
-                serialNumber: inactiveElevators[i].serial_number,
-                ID: inactiveElevators[i].id
-            }
-            // add to the array
-            elevatorDisplay.push(elevatorInfo);
-        }
+        // for (let i = 0 ; i < inactiveElevators.length; i++){
+        //     // extract desired information
+        //     const elevatorInfo = {
+        //         lastInspectionDate:inactiveElevators[i].last_inspection_date,
+        //         inspectionCertificate: inactiveElevators[i].inspection_certificate,
+        //         status: inactiveElevators[i].status,
+        //         serialNumber: inactiveElevators[i].serial_number,
+        //         ID: inactiveElevators[i].id
+        //     }
+        //     // add to the array
+        //     elevatorDisplay.push(elevatorInfo);
+        // }
 
         // console.log(elevatorDisplay)
 
         // a log for the console to display the result works   
-        console.log ("number of inactive elevators : " + elevatorDisplay.length);
-        return elevatorDisplay;
+        // console.log ("number of inactive elevators : " + elevatorDisplay.length);
+        // return elevatorDisplay;
 
 
     }
