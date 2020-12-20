@@ -1,4 +1,3 @@
-// src/screens/Home.js
 
 import React, {useState} from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native'
@@ -8,7 +7,8 @@ import global from '../global'
 import {checkCredential} from '../logic/LoginLogic'
 
 
-
+// first view of the app it contains a login area with an input field for the user to enter a valid email address 
+// and a login button
 function Login(props) {
 
     const [textInput, setTextInput] = useState('');
@@ -17,7 +17,6 @@ function Login(props) {
     return (
         <View style={styles.container}>
         <Text style={styles.text}>Login to your account</Text>
-
         <TextInput 
             style={styles.textInput} 
             onChangeText={textInput => setTextInput(textInput)} 
@@ -29,7 +28,7 @@ function Login(props) {
             await checkCredential(props, textInput)
             }>
             <Text style={styles.buttonText}>LOGIN</Text>
-            </TouchableOpacity>
+        </TouchableOpacity>
         </View>
     )
 }

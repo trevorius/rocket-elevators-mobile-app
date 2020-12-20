@@ -12,6 +12,7 @@ import style from '../screens/StyleSheets'
 
 const Stack = createStackNavigator()
 
+// nav bar header for every page
 function MainStackNavigator() {
   return (
     <NavigationContainer>
