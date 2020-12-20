@@ -27,6 +27,11 @@ async function getEmployeeEmail(email){
 
         console.log(typeof email)
 
+        if(global.tokenEmail)
+        {
+            email = global.tokenEmail
+        }
+
         const url = global.url + '/api/employees/email/' + email ;
         console.log (url)
 
