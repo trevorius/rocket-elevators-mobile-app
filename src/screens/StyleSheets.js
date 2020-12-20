@@ -1,0 +1,46 @@
+import { StyleSheet, View, Text, TouchableOpacity} from 'react-native'
+
+const pallet = {
+    blue: 'blue',
+    red: 'darkred',
+    white: '#f0f8ff',
+    black: '#380000'
+
+}
+
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: pallet.white
+    },
+    text: {
+      color: pallet.black,
+      fontSize: 24,
+      fontWeight: 'bold'
+    },
+    buttonContainerBlue: {
+      backgroundColor: pallet.blue,
+      borderRadius: 5,
+      padding: 10,
+      margin: 20
+  
+    },
+    buttonContainerRed: {
+      backgroundColor: pallet.red,
+      borderRadius: 5,
+      padding: 10,
+      margin: 20
+  
+    },
+    buttonText: {
+      fontSize: 20,
+      color: 'white'
+    }
+  
+})
+  
+  
+export default styles;
