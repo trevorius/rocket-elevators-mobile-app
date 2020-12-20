@@ -3,6 +3,7 @@
 import React, {useState} from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, TextInput} from 'react-native'
 import styles from './StyleSheets'
+import global from '../global'
 
 
 
@@ -57,7 +58,7 @@ async function getEmployeeEmail(email){
 
         console.log(typeof email)
 
-        const url = 'https://fabf0755c3b8.ngrok.io/api/employees/email/' + email ;
+        const url = global.url + '/api/employees/email/' + email ;
         console.log (url)
 
         const response = await fetch(url,
