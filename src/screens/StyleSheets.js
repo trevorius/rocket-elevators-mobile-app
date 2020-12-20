@@ -2,13 +2,6 @@ import { StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 
 import pallet from './colors'
 
-// const pallet = {
-//     blue: 'blue',
-//     red: 'darkred',
-//     white: '#f0f8ff',
-//     black: '#380000'
-
-// }
 
 
 const styles = StyleSheet.create({
