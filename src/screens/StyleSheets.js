@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
       fontSize: 24,
       fontWeight: 'bold'
     },
+    textSmall:{
+      color: pallet.black,
+      fontSize: 15,
+      fontWeight: 'bold'
+    },
     buttonContainerBlue: {
       backgroundColor: pallet.blue,
       borderRadius: 5,
