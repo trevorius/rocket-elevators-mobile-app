@@ -8,7 +8,8 @@ import { render } from 'react-dom'
 
 
 //  export a class from file that renders the view
-export default class App extends Component{
+// export default class App extends Component{
+class App extends Component{
 
   // class constructor
   constructor(props){
@@ -19,17 +20,18 @@ export default class App extends Component{
     }
     
   } 
-  // Api call to get the list of elevators
-componentDidMount(){
-    getInactiveElevators()
-    .then((InactiveElevators) => {
-      this.setState({
-        isLoading:false,
-        dataSource: InactiveElevators
-      })
-    })
+//   // Api call to get the list of elevators
+// componentDidMount(){
+//     console.log("loading home api call")
+//     getInactiveElevators()
+//     .then((InactiveElevators) => {
+//       this.setState({
+//         isLoading:false,
+//         dataSource: InactiveElevators
+//       })
+//     })
 
-  }
+//   }
   // render the individual section reserved for an elevator
   _renderItem = ({item, index}) => {
     const Elevator = {
@@ -47,13 +49,21 @@ componentDidMount(){
           this.props.navigation.navigate('Detail',{item: Elevator})
         }}
         >
-        <Text style={styles.textSmall}> elevator : {item.id}  serial number : {item.serial_number}</Text>
+        <Text style={styles.textSmall}> elevator : {item.id} Status : {item.status} serial number : {item.serial_number}</Text>
         </TouchableOpacity>
       </View>
     )
   }
   // render the container for the final view
   render(){
+    // make an api request and refresh state
+    getInactiveElevators()
+    .then((InactiveElevators) => {
+      this.setState({
+        isLoading:false,
+        dataSource: InactiveElevators
+      })
+    })
   
     let {dataSource, isLoading} = this.state
     return(
@@ -67,3 +77,6 @@ componentDidMount(){
     )
   }
 }
+
+export default App
+export {App}

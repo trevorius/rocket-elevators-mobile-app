@@ -42,13 +42,7 @@ async function changeStatusToActive(ID){
             },
             "body": JSON.stringify(body)
         })
-    try{
-        console.log(response)
-    }
-    catch(error){
-        alert(error)
-
-    }
+    
     
 
 }

@@ -6,10 +6,12 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import {getElevatorInfo, changeStatusToActive} from '../logic/DetailLogic'
 import pallet from './colors'
 import styles from './StyleSheets'
+import {App} from './Home'
 
 
 function Detail(props) {
   const {route} = props
+  const {navigation} = props
   const {item} = route.params
   const {ID, lastInspectionDate, inspectionCertificate, status, serialNumber } = item
 
@@ -32,6 +34,17 @@ function Detail(props) {
           <Text style={styles.text} > serial number : </Text>
           <Text style={styles.textRed} >{serialNumber}</Text>
         </View>
+
+        <TouchableOpacity
+            style={styles.buttonContainerBlue}
+            onPress={ () => { 
+                
+                navigation.navigate('Home')
+            }             
+            }>
+            <Text style={styles.buttonText}>return to list of non-operational elevators</Text>
+      </TouchableOpacity>
+
       </View>
     
     )
@@ -53,14 +66,24 @@ function Detail(props) {
       </View>
       <TouchableOpacity
             style={styles.buttonContainerBlue}
-            onPress={ async () => 
-             await changeStatusToActive(ID)
-             
+            onPress={ async () => { 
+            await changeStatusToActive(ID);
+            const Elevator = await getElevatorInfo(ID);
+            console.log(Elevator);
+
+            const refreshedElevator = {
+              ID: Elevator.id,
+              lastInspectionDate:Elevator.last_inspection_date,
+              inspectionCertificate: Elevator.inspection_certificate,
+              status: Elevator.status,
+              serialNumber: Elevator.serial_number,
+            } 
+            navigation.navigate('Detail', {item:refreshedElevator})
+            }             
             }>
             <Text style={styles.buttonText}>change status to ACTIVE</Text>
       </TouchableOpacity>
-    </View>
-  
+    </View>  
   )
 }
 
