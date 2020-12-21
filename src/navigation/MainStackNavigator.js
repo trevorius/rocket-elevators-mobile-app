@@ -45,7 +45,10 @@ function MainStackNavigator() {
               <View
               style= {{marginRight:10}}>
               <Button
-                onPress={() => navigation.navigate ('Login')}
+                onPress={() => {
+                  componentWillUnmount(),
+                  navigation.navigate ('Login')
+                }}
                 title="Logout"
                 color= {pallet.red}
                 style={style.buttonContainerRed}
@@ -96,7 +99,10 @@ function MainStackNavigator() {
             <View
             style= {{marginRight:10}}>
             <Button
-              onPress={() => navigation.navigate ('Login')}
+              onPress={() => {
+                componentWillUnmount()
+                navigation.navigate ('Login')
+              }}
               title="Logout"
               color= {pallet.red}
               style={style.buttonContainerRed}
@@ -116,6 +122,12 @@ function MainStackNavigator() {
       </Stack.Navigator>
     </NavigationContainer>
   )
+}
+function componentWillUnmount() {
+  // fix Warning: Can't perform a React state update on an unmounted component
+  this.setState = (state,callback)=>{
+      return;
+  };
 }
 
 export default MainStackNavigator
