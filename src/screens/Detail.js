@@ -1,12 +1,14 @@
 // src/screens/Home.js
 
 import React, {useState, Component} from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Image} from 'react-native'
 
 import {getElevatorInfo, changeStatusToActive} from '../logic/DetailLogic'
 import pallet from './colors'
 import styles from './StyleSheets'
 import {App} from './Home'
+import logoPath from '../images/R2.png'
+
 
 
 function Detail(props) {
@@ -21,18 +23,25 @@ function Detail(props) {
   if(status.toLowerCase() == 'active'){
     return (
       <View style={styles.container}>
-        <Text style={styles.textLarge}>Elevator : </Text>
-        <View>
+         
+            <Image
+             style={styles.logo}
+             source={logoPath}
+              
+            />
+           
+        {/* <Text style={styles.textLarge}>Elevator : </Text> */}
+        <View style={styles.box}>
           <Text style={styles.text} > ID : </Text>
-          <Text style={styles.textRed} >{ID}</Text>
+          <Text style={styles.textBold} >{ID}</Text>
           <Text style={styles.text} > status : </Text>
-          <Text style={styles.textRed} >{status}</Text>
+          <Text style={styles.textGreen} >{status}</Text>
           <Text style={styles.text} > last inspection date :</Text> 
-          <Text style={styles.textRed} >{lastInspectionDate}</Text>
+          <Text style={styles.textBold} >{lastInspectionDate}</Text>
           <Text style={styles.text} > inspection certificate :</Text>
-          <Text style={styles.textRed} >{inspectionCertificate}</Text>
+          <Text style={styles.textBold} >{inspectionCertificate}</Text>
           <Text style={styles.text} > serial number : </Text>
-          <Text style={styles.textRed} >{serialNumber}</Text>
+          <Text style={styles.textBold} >{serialNumber}</Text>
         </View>
 
         <TouchableOpacity
@@ -51,18 +60,23 @@ function Detail(props) {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.textLarge}>Elevator : </Text>
-      <View>
+      {/* <Text style={styles.textLarge}>Elevator : </Text> */}
+      <Image
+             style={styles.logo}
+             source={logoPath}
+              
+      />
+      <View style= {styles.box}>
         <Text style={styles.text} > ID : </Text>
-        <Text style={styles.textRed} >{ID}</Text>
+        <Text style={styles.textBold} >{ID}</Text>
         <Text style={styles.text} > status : </Text>
         <Text style={styles.textRed} >{status}</Text>
         <Text style={styles.text} > last inspection date :</Text> 
-        <Text style={styles.textRed} >{lastInspectionDate}</Text>
+        <Text style={styles.textBold} >{lastInspectionDate}</Text>
         <Text style={styles.text} > inspection certificate :</Text>
-        <Text style={styles.textRed} >{inspectionCertificate}</Text>
+        <Text style={styles.textBold} >{inspectionCertificate}</Text>
         <Text style={styles.text} > serial number : </Text>
-        <Text style={styles.textRed} >{serialNumber}</Text>      
+        <Text style={styles.textBold} >{serialNumber}</Text>      
       </View>
       <TouchableOpacity
             style={styles.buttonContainerBlue}

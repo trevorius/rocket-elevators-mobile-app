@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { StyleSheet, View, Text, TouchableOpacity, Button, ColorPropType } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, Button, ColorPropType, Image } from 'react-native'
 
 
 import Home from '../screens/Home'
@@ -9,6 +9,8 @@ import Detail from '../screens/Detail'
 import Login from '../screens/LoginScreen'
 import pallet from '../screens/colors'
 import style from '../screens/StyleSheets'
+import logoPath from '../images/R2.png'
+import styles from '../screens/StyleSheets'
 
 const Stack = createStackNavigator()
 
@@ -28,8 +30,18 @@ function MainStackNavigator() {
             component={Home} 
             options={({navigation}) =>  
               ({ 
-              title: 'home screen',              
-              headerRight: () => (
+                title: '', 
+                headerLeft:() => (
+                  <View
+                style= {{marginLeft:10}}>
+                <Image
+                  style={styles.logo}
+                  source={logoPath}
+                  
+                />
+                  </View>
+                ),
+                headerRight: () => (
               <View
               style= {{marginRight:10}}>
               <Button
@@ -51,14 +63,35 @@ function MainStackNavigator() {
         <Stack.Screen 
             name='Login' 
             component={Login} 
-            options={{ title: 'Login'} } 
+            options={{ title: 'Login', 
+            headerRight:() => (
+              <View
+            style= {{marginRight:10}}>
+            <Image
+              style={styles.logo}
+              source={logoPath}
+              
+            />
+              </View>
+            )} 
+            }
         />
         <Stack.Screen 
             name= 'Detail'
             component={Detail}
             options={({navigation}) =>  
             ({ 
-            title: 'Details',              
+            title: 'Elevator', 
+            // headerLeft:() => (
+            //   <View
+            // style= {{marginLeft:10}}>
+            // <Image
+            //   style={styles.logo}
+            //   source={logoPath}
+              
+            // />
+            //   </View>
+            // ),             
             headerRight: () => (
             <View
             style= {{marginRight:10}}>

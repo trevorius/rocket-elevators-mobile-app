@@ -2,7 +2,17 @@ import { StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 
 import pallet from './colors'
 
+const size ={
+  Title: 40,
+  Large: 25,
+  normal: 18,
+  small: 12,
+  padding:10,
+  paddingSmall:8,
+  marginSmall:4,
+  marginLarge: 15
 
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -13,56 +23,74 @@ const styles = StyleSheet.create({
     },
     text: {
       color: pallet.black,
-      fontSize: 24,
+      fontSize: size.normal,
+    },
+    textBold: {
+      color: pallet.black,
+      fontSize: size.normal,
+      fontWeight: 'bold'
+    },
+    textGreen:{
+      color: pallet.green,
+      fontSize: size.normal,
       fontWeight: 'bold'
     },
     textRed: {
-      color: pallet.red,
-      fontSize: 24,
+      color: pallet.brightRed,
+      fontSize: size.normal,
       fontWeight: 'bold'
     },
     textLarge: {
       color: pallet.black,
-      fontSize: 40,
+      fontSize: size.Large,
       textDecorationLine: 'underline',
       fontWeight: 'bold'
     },
     textSmall:{
       color: pallet.black,
-      fontSize: 15,
+      fontSize: size.small,
       fontWeight: 'bold'
     },
     buttonContainerBlue: {
       backgroundColor: pallet.blue,
       borderRadius: 5,
-      padding: 10,
-      margin: 20
+      padding: size.paddingSmall,
+      margin: size.marginLarge
   
     },
     buttonContainerRed: {
       backgroundColor: pallet.red,
       borderRadius: 5,
-      padding: 10,
-      margin: 20
+      padding: size.paddingSmall,
+      margin: size.marginLarge
   
     },
     buttonText: {
-      fontSize: 20,
-      color: 'white'
+      fontSize: size.normal,
+      color: pallet.white
     },
     textInput: {
-      padding: 15,
-      margin: 5,
-      fontSize:10,
+      padding: size.padding,
+      margin: size.marginSmall,
+      fontSize:size.small,
       color: pallet.black,
       borderStyle: "dashed"
     },
     item:{
-      padding: 10,
+      padding: size.paddingSmall,
       borderBottomWidth: 3,
       color: pallet.red
 
+    },
+    box:{
+      padding: size.padding,
+      margin: size.marginSmall,
+
+    },
+    logo:{
+      width: 100
     }
+
   
 })
   
